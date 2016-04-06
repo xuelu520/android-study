@@ -6,3 +6,6 @@
 
 ## *Fragment* 使用
 [Fragment详解](http://blog.csdn.net/harvic880925/article/details/44927375)
+
+## *数据保存*
+[数据保存](http://hukai.me/android-training-course-in-chinese/basics/data-storage/shared-preference.html)

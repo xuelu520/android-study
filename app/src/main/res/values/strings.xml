@@ -5,8 +5,11 @@
     <string name="ADD_Fragment2">添加Fragment-2</string>
     <string name="Remove_Fragment2">移除Fragment-2</string>
     <string name="Replace_Fragment1">替换Fragment-1</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Fragment_DEMO">Fragment Demo</string>
+    <string name="data_DEMO">数据保存</string>
+    <string name="title_activity_fragment">FragmentActivity</string>
+    <string name="title_activity_data">DataActivity</string>
+    <string name="addPerferenceData">添加Perferencd值</string>
+    <string name="getPerferenceData">获取Perference值</string>
 
 </resources>
