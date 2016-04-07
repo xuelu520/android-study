@@ -9,3 +9,4 @@
 
 ## *数据保存*
 [数据保存](http://hukai.me/android-training-course-in-chinese/basics/data-storage/shared-preference.html)
+[用SharePreference存储数据](http://www.tuicool.com/articles/iMnyM3)

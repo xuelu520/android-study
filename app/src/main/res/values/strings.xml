@@ -11,5 +11,7 @@
     <string name="title_activity_data">DataActivity</string>
     <string name="addPerferenceData">添加Perferencd值</string>
     <string name="getPerferenceData">获取Perference值</string>
+    <string name="ListView">ListViwe样例</string>
+    <string name="title_activity_list_view">ListViewActivity</string>
 
 </resources>

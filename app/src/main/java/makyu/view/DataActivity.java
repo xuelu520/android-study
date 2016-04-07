@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+
 public class DataActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText et;
-
+    final static String FILENAME = "save_data_demo";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +23,8 @@ public class DataActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
 
         et = (EditText) findViewById(R.id.et);
-        Button bt = (Button) findViewById(R.id.bt);
-        Button bt2 = (Button) findViewById(R.id.bt2);
+        Button bt = (Button) findViewById(R.id.savePreference);
+        Button bt2 = (Button) findViewById(R.id.getPreference);
         bt.setOnClickListener(this);
         bt2.setOnClickListener(this);
     }
@@ -30,12 +32,18 @@ public class DataActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt:
+            case R.id.savePreference:
                 String etString = et.getText().toString();
                 saveData(this,etString);
                 break;
-            case R.id.bt2:
+            case R.id.getPreference:
                 loadData(this);
+                break;
+            case R.id.saveFile :
+                String msg = et.getText().toString();
+                saveFile(msg);
+                break;
+            case R.id.getFile :
                 break;
             default:
                 break;
@@ -53,4 +61,14 @@ public class DataActivity extends AppCompatActivity implements View.OnClickListe
         editor.apply();
     }
 
+    private void saveFile(String msg) {
+        FileOutputStream outputStream;
+        try {
+            outputStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            outputStream.write(msg.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

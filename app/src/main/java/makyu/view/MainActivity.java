@@ -10,10 +10,12 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public Button fragmentDemoButton;
-    public Button dataDemoButton;
+    private Button fragmentDemoButton;
+    private Button dataDemoButton;
+    private Button listViewButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,26 +25,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fragmentDemoButton = (Button) findViewById(R.id.fragment_demo);
-        fragmentDemoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "跳转Fragment Demo 页面", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, FragmentActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-
         dataDemoButton = (Button) findViewById(R.id.data_demo);
-        dataDemoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "跳转Data Demo 页面", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, DataActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        listViewButton = (Button) findViewById(R.id.listView);
+
+        fragmentDemoButton.setOnClickListener(this);
+        dataDemoButton.setOnClickListener(this);
+        listViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -64,5 +52,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        switch (v.getId()) {
+            case R.id.fragment_demo :
+                show("跳转Fragment Demo 页面");
+                intent.setClass(MainActivity.this, FragmentActivity.class);
+                break;
+            case R.id.data_demo :
+                show("跳转Data Demo 页面");
+                intent.setClass(MainActivity.this, DataActivity.class);
+                break;
+            case R.id.listView :
+                show("跳转ListView Demo 页面");
+                intent.setClass(MainActivity.this, ListViewActivity.class);
+
+        }
+        MainActivity.this.startActivity(intent);
+    }
+
+    private void show(String msg) {
+        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 }
