@@ -3,7 +3,7 @@
     package="makyu.view">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission  android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,6 +31,10 @@
         <activity
             android:name=".ListViewActivity"
             android:label="@string/title_activity_list_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NetworkActivity"
+            android:label="@string/title_activity_network"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

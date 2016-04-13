@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:showIn="@layout/activity_network"
+android:orientation="vertical"
+tools:context="makyu.view.NetworkActivity">
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="网络数据结果为："/>
+<TextView
+    android:id="@+id/text_res"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"/>
+<Button
+    android:id="@+id/getNetData"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Get_net_data"/>
+
+</LinearLayout>

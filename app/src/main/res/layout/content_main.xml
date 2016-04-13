@@ -32,4 +32,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ListView"/>
+
+    <Button
+        android:id="@+id/netView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Network"/>
 </LinearLayout>
