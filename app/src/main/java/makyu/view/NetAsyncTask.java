@@ -34,7 +34,7 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
      */
     @Override
     protected void onPostExecute(String result) {
-        textView.setText("异步操作执行结束" + result);
+        textView.setText("异步操作执行结束\n" + result);
 
     }
 
@@ -46,7 +46,7 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
     }
 
     public String getData() {
-        String msg = "";
+        String msg;
         try {
             URL url = new URL(RANK_API_URL);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -64,10 +64,10 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
                 msg = "响应码为：" + code + "\n" + res;
             }
         } catch (Exception e) {
+            msg = "网络错误。";
             e.printStackTrace();
-        }finally {
-            return msg;
         }
+        return msg;
     }
 
 
