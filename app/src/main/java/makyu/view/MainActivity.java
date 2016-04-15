@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button dataDemoButton;
     private Button listViewButton;
     private Button netViewButton;
+    private Button viewPagerButton;
 
 
     @Override
@@ -29,11 +30,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataDemoButton = (Button) findViewById(R.id.data_demo);
         listViewButton = (Button) findViewById(R.id.listView);
         netViewButton = (Button) findViewById(R.id.netView);
+        viewPagerButton = (Button) findViewById(R.id.viewPagerView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
         listViewButton.setOnClickListener(this);
         netViewButton.setOnClickListener(this);
+        viewPagerButton.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.netView :
                 show("跳转NetworkView Demo 页面");
                 intent.setClass(MainActivity.this, NetworkActivity.class);
+                break;
+            case R.id.viewPagerView :
+                show("跳转viewPagerView Demo 页面");
+                intent.setClass(MainActivity.this, ViewPagerActivity.class);
                 break;
         }
         MainActivity.this.startActivity(intent);

@@ -38,4 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Network"/>
+
+    <Button
+        android:id="@+id/viewPagerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ViewPager"/>
 </LinearLayout>
