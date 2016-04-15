@@ -1,6 +1,7 @@
 package makyu.view;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,10 @@ public class ViewPagerActivity extends AppCompatActivity {
     private View view1;
     private View view2;
     private View view3;
+    private TabLayout tabLayout;
     private ViewPager viewPager;
-    private List<View> viewList;
+    private List<String> mTitleList = new ArrayList<>();//页卡标题集合
+    private List<View> viewList = new ArrayList<View>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +34,35 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
         LayoutInflater inflater = getLayoutInflater();
         view1 = inflater.inflate(R.layout.content_main, null);
         view2 = inflater.inflate(R.layout.content_main, null);
         view3 = inflater.inflate(R.layout.content_main, null);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewList = new ArrayList<View>();
     }
 
     private void initData() {
         viewList.add(view1);
         viewList.add(view2);
         viewList.add(view3);
+
+        //添加页卡标题
+        mTitleList.add("标题-1");
+        mTitleList.add("标题-2");
+        mTitleList.add("标题-3");
+
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        //添加tab选项卡
+        tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(0)));
+        tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(1)));
+        tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(2)));
+
         viewPager.setAdapter(pagerAdapter);
+
+        tabLayout.setupWithViewPager(viewPager);//将TabLayout和ViewPager关联起来。
+        tabLayout.setTabsFromPagerAdapter(pagerAdapter);//给Tabs设置适配器
     }
 
     //适配器
@@ -86,6 +105,11 @@ public class ViewPagerActivity extends AppCompatActivity {
             container.addView(viewList.get(position));
             return viewList.get(position);
             //return position;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitleList.get(position);//页卡标题
         }
     };
 }
