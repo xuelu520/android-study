@@ -7,10 +7,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 import makyu.view.Model.Bankuai;
@@ -56,7 +60,7 @@ public class TieziHelper{
 //        TieziData.put("totalPage", INIT_TOTAL_PAGE);
     }
 
-    public String parse(String js) {
+    public Map.Entry[] parse(String js) {
         String start = "get_var_store=";
         String dataString = js.substring(js.indexOf(start)+14);
 
@@ -74,9 +78,20 @@ public class TieziHelper{
         data = (JSONObject) o.get("__T");
         if (data == null)
             return null;
-        for (Map.Entry<String, Object> entry : data.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue());
-        }
-        return null;
+        Set set = data.entrySet();
+        Map.Entry[] entries = (Map.Entry[]) set.toArray(new Map.Entry[set.size()]);
+        Arrays.sort(entries, new Comparator<Map.Entry>() {
+            @Override
+            public int compare(Map.Entry lhs, Map.Entry rhs) {
+                Integer left = Integer.parseInt(lhs.getKey().toString());
+                Integer right = Integer.parseInt(rhs.getKey().toString());
+                return left > right ? 1 : -1;
+            }
+        });
+
+//        for (Map.Entry<String, Object> entry : entries) {
+//            System.out.println(entry.getKey() + ":" + entry.getValue());
+//        }
+        return entries;
     }
 }

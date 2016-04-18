@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 import makyu.view.util.TieziHelper;
 
@@ -26,8 +27,7 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
 
     @Override
     protected String doInBackground(Integer... params) {
-        String msg = getData();
-        return msg;
+        return "";
     }
 
     /**
@@ -36,7 +36,8 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
      */
     @Override
     protected void onPostExecute(String result) {
-        textView.setText("异步操作执行结束\n" + result);
+        Map.Entry[] data = getData();
+        textView.setText("异步操作执行结束");
 
     }
 
@@ -47,8 +48,8 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
         textView.setText("开始执行异步线程");
     }
 
-    public String getData() {
-        String msg;
+    public Map.Entry[] getData() {
+        Map.Entry[] entries = null;
         try {
             URL url = new URL(RANK_API_URL);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -57,22 +58,17 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
             conn.setRequestProperty("Charset", "UTF-8");
             //对响应码进行判断
             int code = conn.getResponseCode();
-            if(code != 200) {
-                msg = "响应码为：" + code;
-            }else{
+            if(code == 200) {
                 //流转换
                 InputStream inputStream = conn.getInputStream();
                 String res = streamToString(inputStream);
-                msg = "响应码为：" + code + "\n" + res;
-
                 TieziHelper thlper = new TieziHelper();
-                thlper.parse(res);
+                entries = thlper.parse(res);
             }
         } catch (Exception e) {
-            msg = "网络错误。";
             e.printStackTrace();
         }
-        return msg;
+        return entries;
     }
 
 
