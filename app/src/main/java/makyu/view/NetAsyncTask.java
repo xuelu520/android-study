@@ -9,12 +9,14 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import makyu.view.util.TieziHelper;
+
 /**
  * Created by -(^_^)- on 2016/4/14.
  */
 public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
     private TextView textView;
-    private static final String RANK_API_URL = "http://yige.cc/api/rs_rank100";
+    private static final String RANK_API_URL = "http://bbs.nga.cn/thread.php?fid=335&lite=js";
     private static final String ACTIVITY_TAG = "NetworkDemo";
 
     public NetAsyncTask(TextView textView) {
@@ -62,6 +64,9 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
                 InputStream inputStream = conn.getInputStream();
                 String res = streamToString(inputStream);
                 msg = "响应码为：" + code + "\n" + res;
+
+                TieziHelper thlper = new TieziHelper();
+                thlper.parse(res);
             }
         } catch (Exception e) {
             msg = "网络错误。";
@@ -88,7 +93,7 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
             baos.close();
             is.close();
             byte[] byteArray = baos.toByteArray();
-            return new String(byteArray, "UTF-8");
+            return new String(byteArray, "gbk");
         } catch (Exception e) {
             Log.e(ACTIVITY_TAG, e.toString());
             return null;

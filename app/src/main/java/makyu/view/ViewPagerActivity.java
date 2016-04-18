@@ -31,6 +31,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         initView();
         initData();
+        setView();
     }
 
     private void initView() {
@@ -53,14 +54,15 @@ public class ViewPagerActivity extends AppCompatActivity {
         mTitleList.add("标题-2");
         mTitleList.add("标题-3");
 
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
         //添加tab选项卡
         tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(0)));
         tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(1)));
         tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(2)));
+    }
 
+    private void setView() {
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
         viewPager.setAdapter(pagerAdapter);
-
         tabLayout.setupWithViewPager(viewPager);//将TabLayout和ViewPager关联起来。
         tabLayout.setTabsFromPagerAdapter(pagerAdapter);//给Tabs设置适配器
     }
