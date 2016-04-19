@@ -22,18 +22,16 @@ public class ListViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        initView();
         initListView();
     }
 
-    private void initListView() {
+    private void initView() {
         listView = (ListView) findViewById(R.id.listView1);
-        final List<String> adapterData = new ArrayList<String>();
-        for (int i = 0; i < 20; i++) {
-            adapterData.add("ListItem" + i);
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, adapterData);
-        listView.setAdapter(adapter);
+    }
+
+    private void initListView() {
+        NetAsyncTask asyncTask = new NetAsyncTask(ListViewActivity.this, listView);
+        asyncTask.execute();
     }
 }

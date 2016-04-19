@@ -89,9 +89,6 @@ public class TieziHelper{
             }
         });
 
-//        for (Map.Entry<String, Object> entry : entries) {
-//            System.out.println(entry.getKey() + ":" + entry.getValue());
-//        }
         return entries;
     }
 }
