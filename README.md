@@ -11,5 +11,5 @@
 [数据保存](http://hukai.me/android-training-course-in-chinese/basics/data-storage/shared-preference.html)
 [用SharePreference存储数据](http://www.tuicool.com/articles/iMnyM3)
 
-##三分组件
+##三方组件
 * fastJson,阿里出品，值得信赖。用来解析网络json数据。
