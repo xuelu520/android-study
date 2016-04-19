@@ -1,18 +1,16 @@
 package makyu.view;
 
-import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.alibaba.fastjson.JSON;
 
 import org.json.JSONObject;
 
@@ -34,6 +32,7 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
     private TextView textView;
     private ListView listView;
     private AppCompatActivity activity;
+    private List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
     private static final String RANK_API_URL = "http://bbs.nga.cn/thread.php?fid=335&lite=js";
     private static final String ACTIVITY_TAG = "NetworkDemo";
@@ -68,13 +67,13 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
 
         TieziHelper thlper = new TieziHelper();
         Map.Entry[] entries = thlper.parse(result);
-        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         for (Map.Entry<String, JSONObject> entry : entries) {
             Map<String, String> keyValuePair = new HashMap<String, String>();
             Map map = (Map)entry.getValue();
             System.out.println(entry.getKey() + ":" + ((Map)entry.getValue()).get("subject"));
             keyValuePair.put("subject", map.get("subject").toString());
             keyValuePair.put("author", map.get("author").toString());
+            keyValuePair.put("tpcurl", map.get("tpcurl").toString());
             list.add(keyValuePair);
         }
         ListAdapter adapter = new SimpleAdapter(activity, list,
@@ -82,6 +81,23 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
                 "author" }, new int[] { android.R.id.text1,
                 android.R.id.text2 });
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Map<String, String> map = list.get(position);
+                String subject = map.get("subject");
+                String author = map.get("author");
+                String tpcurl = map.get("tpcurl");
+                Toast.makeText(activity, subject + "/" + author + ">>" + tpcurl, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.putExtra("subject", subject);
+                intent.putExtra("author", author);
+                intent.putExtra("tpcurl", tpcurl);
+                intent.setClass(activity, ZhutiActivity.class);
+                activity.startActivity(intent);
+            }
+        });
     }
 
 

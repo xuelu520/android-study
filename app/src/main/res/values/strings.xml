@@ -18,5 +18,6 @@
     <string name="Get_net_data">获取网络数据</string>
     <string name="ViewPager">ViewPager样例</string>
     <string name="title_activity_view_pager">ViewPagerActivity</string>
+    <string name="title_activity_zhuti">ZhutiActivity</string>
 
 </resources>

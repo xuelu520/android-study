@@ -40,6 +40,10 @@
         <activity
             android:name=".ViewPagerActivity"
             android:label="@string/title_activity_view_pager"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ZhutiActivity"
+            android:label="@string/title_activity_zhuti"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
