@@ -24,11 +24,6 @@ public class ZhutiActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intent = getIntent();
-        String subject = intent.getStringExtra("subject");
-//        String author = intent.getStringExtra("author");
-        String tpurl = intent.getStringExtra("tpurl");
-
         initView();
         initData();
     }
@@ -41,9 +36,9 @@ public class ZhutiActivity extends AppCompatActivity {
     private void initData() {
         Intent intent = getIntent();
         String subject = intent.getStringExtra("subject");
-        String tpurl = intent.getStringExtra("tpurl");
+        String tpcurl = intent.getStringExtra("tpcurl");
         textView.setText(subject);
-        ZhutiAsyncTask zhutiAsyncTask = new ZhutiAsyncTask(ZhutiActivity.this, listView);
-        zhutiAsyncTask.execute(tpurl);
+        ZhutiAsyncTask zhutiAsyncTask = new ZhutiAsyncTask(ZhutiActivity.this, listView, tpcurl);
+        zhutiAsyncTask.execute();
     }
 }

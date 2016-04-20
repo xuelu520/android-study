@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ZhutiActivity"
     tools:showIn="@layout/activity_zhuti">
@@ -16,9 +12,12 @@
         android:id="@+id/zhutiTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#3366CC"/>
+        android:background="?attr/colorPrimary"
+        android:textColor="#FFFFFF"
+        />
 
     <ListView
+        android:layout_below="@id/zhutiTextView"
         android:scrollbars="none"
         android:id="@+id/zhutiListView"
         android:layout_width="match_parent"

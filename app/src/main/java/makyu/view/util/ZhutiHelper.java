@@ -31,33 +31,7 @@ public class ZhutiHelper {
     private static final int INIT_PER_PAGE = 25; //初始化每页数量
     private static final int INIT_TOTAL_PAGE = 0; //初始化总页数
 
-    private List<Bankuai> bankuais = null;
-    private HashMap<String,Object> TieziData = null;
-    private List<Tiezi> tiezis = null;
-    private Tiezi tiezi;
-    private String elementName = null;
-
-    public List<Bankuai> getBankuais() {
-        return bankuais;
-    }
-
-    public List<Tiezi> getTiezis() {
-        return tiezis;
-    }
-
-    {
-        initTiziData();
-    }
-
-    private void initTiziData() {
-        TieziData = new HashMap<>();
-        TieziData.put("data", new ArrayList<Tiezi>());
-//        TieziData.put("count", INIT_COUNT);
-//        TieziData.put("perPage", INIT_PER_PAGE);
-//        TieziData.put("totalPage", INIT_TOTAL_PAGE);
-    }
-
-    public Map.Entry[] parse(String js) {
+    public HashMap parse(String js) {
         String start = "get_var_store=";
         String dataString = js.substring(js.indexOf(start)+14);
 
@@ -72,7 +46,7 @@ public class ZhutiHelper {
         }
 
         JSONObject data;
-        data = (JSONObject) o.get("__T");
+        data = (JSONObject) o.get("__R");
         if (data == null)
             return null;
         Set set = data.entrySet();
@@ -86,6 +60,9 @@ public class ZhutiHelper {
             }
         });
 
-        return entries;
+        HashMap hashMap = new HashMap();
+        hashMap.put("__T", entries);
+        hashMap.put("__U", o.get("__U"));
+        return hashMap;
     }
 }
