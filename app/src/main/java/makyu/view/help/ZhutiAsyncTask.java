@@ -11,20 +11,20 @@ import makyu.view.util.Http;
  * Created by -(^_^)- on 2016/4/19.
  */
 public class ZhutiAsyncTask extends AsyncTask<Integer, Integer, String> {
+    String url;
     Activity activity;
     ListView listView;
 
-    @Override
-    protected String doInBackground(Integer... params) {
-        Http http = new Http();
-        http.getData();
-        return null;
+    public ZhutiAsyncTask(AppCompatActivity activity, ListView listView, String url){
+        super();
+        this.activity = activity;
+        this.listView = listView;
+        this.url = url;
     }
 
-    public ZhutiAsyncTask(AppCompatActivity activity, ListView listView){
-        super();
-        this.listView = listView;
-        this.activity = activity;
+    @Override
+    protected String doInBackground(Integer... params) {
+        return null;
     }
 
     @Override
