@@ -44,4 +44,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ViewPager"/>
+
+    <Button
+        android:id="@+id/swipeRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/SwipeRefresh"/>
 </LinearLayout>

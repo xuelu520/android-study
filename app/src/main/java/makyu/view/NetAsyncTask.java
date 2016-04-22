@@ -35,7 +35,8 @@ public class NetAsyncTask extends AsyncTask<Integer, Integer, String> {
     private AppCompatActivity activity;
     private List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
-    private static final String RANK_API_URL = "http://bbs.nga.cn/thread.php?fid=335&lite=js";
+    private static final String RANK_API_URL = "http://bbs.nga.cn/thread.php?fid=335&lite=js&v2";
+//    private static final String RANK_API_URL = "http://bbs.nga.cn/thread.php?fid=7&lite=js&v2";
     private static final String ACTIVITY_TAG = "NetworkDemo";
 
     public NetAsyncTask(TextView textView) {

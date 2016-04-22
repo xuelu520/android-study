@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button listViewButton;
     private Button netViewButton;
     private Button viewPagerButton;
+    Button swipeRefreshButton;
 
 
     @Override
@@ -31,12 +32,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listViewButton = (Button) findViewById(R.id.listView);
         netViewButton = (Button) findViewById(R.id.netView);
         viewPagerButton = (Button) findViewById(R.id.viewPagerView);
+        swipeRefreshButton = (Button) findViewById(R.id.swipeRefreshView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
         listViewButton.setOnClickListener(this);
         netViewButton.setOnClickListener(this);
         viewPagerButton.setOnClickListener(this);
+        swipeRefreshButton.setOnClickListener(this);
     }
 
     @Override
@@ -84,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 show("跳转viewPagerView Demo 页面");
                 intent.setClass(MainActivity.this, ViewPagerActivity.class);
                 break;
+            case R.id.swipeRefreshView :
+                show("跳转下拉刷新 Demo 页面");
+                intent.setClass(MainActivity.this, SwipeRefreshActivity.class);
+                break;
+
         }
         MainActivity.this.startActivity(intent);
     }

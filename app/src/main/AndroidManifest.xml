@@ -44,6 +44,10 @@
         <activity
             android:name=".ZhutiActivity"
             android:label="@string/title_activity_zhuti"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SwipeRefreshActivity"
+            android:label="@string/title_activity_swipe_refresh"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
