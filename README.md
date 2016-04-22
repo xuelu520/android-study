@@ -2,6 +2,7 @@
 
 个人学习安卓的一些收集。
 [谷歌官方教程翻译](http://hukai.me/android-training-course-in-chinese/basics/fragments/communicating.html)
+[Android开发教程收集](http://www.jianshu.com/p/9ed4db8eddba)
 
 
 ## *Fragment* 使用
