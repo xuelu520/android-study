@@ -20,7 +20,7 @@ public class SwipeRefreshActivity extends AppCompatActivity implements SwipeRefr
     private ListView mListView;
     private SwipeRefreshLayout mSwipeLayout;
     private ArrayAdapter<String> mAdapter;
-    private List<String> mDatas = new ArrayList<String>(Arrays.asList("Java", "Javascript", "C++", "Ruby", "Json",
+    private List<String> mDatas = new ArrayList<>(Arrays.asList("Java", "Javascript", "C++", "Ruby", "Json",
             "HTML"));
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,11 +12,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button fragmentDemoButton;
-    private Button dataDemoButton;
-    private Button listViewButton;
-    private Button netViewButton;
-    private Button viewPagerButton;
+    Button fragmentDemoButton;
+    Button dataDemoButton;
+    Button listViewButton;
+    Button netViewButton;
+    Button viewPagerButton;
+    Button cardViewButton;
     Button swipeRefreshButton;
 
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         netViewButton = (Button) findViewById(R.id.netView);
         viewPagerButton = (Button) findViewById(R.id.viewPagerView);
         swipeRefreshButton = (Button) findViewById(R.id.swipeRefreshView);
+        cardViewButton = (Button) findViewById(R.id.cardView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         netViewButton.setOnClickListener(this);
         viewPagerButton.setOnClickListener(this);
         swipeRefreshButton.setOnClickListener(this);
+        cardViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.swipeRefreshView :
                 show("跳转下拉刷新 Demo 页面");
                 intent.setClass(MainActivity.this, SwipeRefreshActivity.class);
+                break;
+            case R.id.cardView :
+                show("跳转卡片式布局 Demo 页面");
+                intent.setClass(MainActivity.this, CardViewActivity.class);
                 break;
 
         }

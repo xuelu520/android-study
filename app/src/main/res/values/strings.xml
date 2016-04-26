@@ -21,5 +21,7 @@
     <string name="title_activity_zhuti">ZhutiActivity</string>
     <string name="title_activity_swipe_refresh">SwipeRefreshActivity</string>
     <string name="SwipeRefresh">下拉刷新</string>
+    <string name="title_activity_card_view">CardViewActivity</string>
+    <string name="CardView">卡片式布局</string>
 
 </resources>

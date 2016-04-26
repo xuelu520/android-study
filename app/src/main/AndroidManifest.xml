@@ -48,6 +48,10 @@
         <activity
             android:name=".SwipeRefreshActivity"
             android:label="@string/title_activity_swipe_refresh"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CardViewActivity"
+            android:label="@string/title_activity_card_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

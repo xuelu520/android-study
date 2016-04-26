@@ -96,7 +96,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         /**
          * 在这里，我们做了两件事
-         *第一：将参数里给定的position的视图，增加到conatiner中，供其创建并显示、。
+         * 第一：将参数里给定的position的视图，增加到conatiner中，供其创建并显示、。
          * 第二：返回当前position的View做为此视图的Key。
          * @param container
          * @param position
