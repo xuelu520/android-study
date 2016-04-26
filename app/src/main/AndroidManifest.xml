@@ -52,6 +52,10 @@
         <activity
             android:name=".CardViewActivity"
             android:label="@string/title_activity_card_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyListViewActivity"
+            android:label="@string/title_activity_my_list_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

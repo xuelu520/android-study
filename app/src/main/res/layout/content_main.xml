@@ -56,4 +56,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/CardView"/>
+
+    <Button
+        android:id="@+id/myListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/myListView"/>
 </LinearLayout>

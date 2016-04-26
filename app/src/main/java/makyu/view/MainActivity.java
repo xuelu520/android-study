@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button viewPagerButton;
     Button cardViewButton;
     Button swipeRefreshButton;
+    Button myListViewButton;
 
 
     @Override
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPagerButton = (Button) findViewById(R.id.viewPagerView);
         swipeRefreshButton = (Button) findViewById(R.id.swipeRefreshView);
         cardViewButton = (Button) findViewById(R.id.cardView);
+        myListViewButton = (Button) findViewById(R.id.myListView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPagerButton.setOnClickListener(this);
         swipeRefreshButton.setOnClickListener(this);
         cardViewButton.setOnClickListener(this);
+        myListViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -97,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.cardView :
                 show("跳转卡片式布局 Demo 页面");
                 intent.setClass(MainActivity.this, CardViewActivity.class);
+                break;
+            case R.id.myListView :
+                show("跳转自定义listView 适配器页面");
+                intent.setClass(MainActivity.this, MyListViewActivity.class);
                 break;
 
         }

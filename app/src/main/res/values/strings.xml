@@ -23,5 +23,7 @@
     <string name="SwipeRefresh">下拉刷新</string>
     <string name="title_activity_card_view">CardViewActivity</string>
     <string name="CardView">卡片式布局</string>
+    <string name="myListView">自定义ListVIew适配器</string>
+    <string name="title_activity_my_list_view">MyListViewActivity</string>
 
 </resources>
