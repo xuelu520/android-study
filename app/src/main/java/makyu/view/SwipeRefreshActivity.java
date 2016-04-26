@@ -47,9 +47,8 @@ public class SwipeRefreshActivity extends AppCompatActivity implements SwipeRefr
                     mAdapter.notifyDataSetChanged();
                     mSwipeLayout.setRefreshing(false);
                     break;
-
             }
-        };
+        }
     };
 
     @Override
