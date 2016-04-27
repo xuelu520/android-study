@@ -29,8 +29,10 @@ proguard/
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+/.idea/*
 .DS_Store
+.idea/*
+.idea/
+.idea
 /build
 /captures

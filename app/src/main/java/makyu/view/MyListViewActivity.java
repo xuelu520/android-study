@@ -1,21 +1,19 @@
 package makyu.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-public class MyListViewActivity extends AppCompatActivity implements ListView.OnItemClickListener{
+import makyu.view.bean.Phone;
+
+public class MyListViewActivity extends AppCompatActivity{
     ListView listView;
-    ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+    private List<Phone> mDatas;
+    private MyAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,26 +32,17 @@ public class MyListViewActivity extends AppCompatActivity implements ListView.On
     }
 
     public void initData() {
+        mDatas = new ArrayList<Phone>();
+        //将数据装到集合中去
 
-        for (int i = 1; i <= 50; ++i) {
-            HashMap<String, String> map = new HashMap<String, String>();
-            map.put("user_name", "zhangsan" + i);
-            map.put("user_ip", "192.168.0." + i);
-            list.add(map);
+        for(int i = 1; i <= 30; ++i) {
+            Phone phone = new Phone("Android新技能" + i,
+                    "Android为ListView和GridView打造万能适配器", "2015-05-04", "10086");
+            mDatas.add(phone);
         }
-        MyAdapter listAdapter = new MyAdapter(this, list,
-                R.layout.user, new String[] { "user_name", "user_ip" },
-                new int[] { R.id.user_name,R.id.user_ip});
-        listView.setAdapter(listAdapter);
-        listView.setOnItemClickListener(this);
-    }
 
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Map<String, String> map = list.get(position);
-        String userName = map.get("user_name");
-        String userIp = map.get("user_ip");
-        Toast.makeText(MyListViewActivity.this, userName + " : " + userIp, Toast.LENGTH_SHORT).show();
+        //为数据绑定适配器
+        mAdapter = new MyAdapter(this,mDatas);
+        listView.setAdapter(mAdapter);
     }
 }
