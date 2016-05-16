@@ -60,11 +60,13 @@ public class VolleyActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onResponse(String response) {
                         Log.d("TAG", response);
+                        resultTv.setText(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("TAG", error.getMessage(), error);
+                resultTv.setText(error.getMessage());
             }
         });
         mQueue.add(stringRequest);
