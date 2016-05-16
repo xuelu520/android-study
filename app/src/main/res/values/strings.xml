@@ -25,5 +25,10 @@
     <string name="CardView">卡片式布局</string>
     <string name="myListView">自定义ListVIew适配器</string>
     <string name="title_activity_my_list_view">MyListViewActivity</string>
+    <string name="VolleyView">VolleyView</string>
+    <string name="title_activity_volley">VolleyActivity</string>
+    <string name="getrequest">getRequest</string>
+    <string name="getRequest">getRequest</string>
+    <string name="result">请求结果</string>
 
 </resources>

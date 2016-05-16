@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button cardViewButton;
     Button swipeRefreshButton;
     Button myListViewButton;
+    Button volleyViewButton;
 
 
     @Override
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         swipeRefreshButton = (Button) findViewById(R.id.swipeRefreshView);
         cardViewButton = (Button) findViewById(R.id.cardView);
         myListViewButton = (Button) findViewById(R.id.myListView);
+        volleyViewButton = (Button) findViewById(R.id.VolleyView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         swipeRefreshButton.setOnClickListener(this);
         cardViewButton.setOnClickListener(this);
         myListViewButton.setOnClickListener(this);
+        volleyViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.myListView :
                 show("跳转自定义listView 适配器页面");
                 intent.setClass(MainActivity.this, MyListViewActivity.class);
+                break;
+            case R.id.VolleyView :
+                show("跳转Volley测试页面");
+                intent.setClass(MainActivity.this, VolleyActivity.class);
                 break;
 
         }
