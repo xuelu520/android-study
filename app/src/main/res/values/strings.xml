@@ -30,5 +30,6 @@
     <string name="getrequest">getRequest</string>
     <string name="getRequest">getRequest</string>
     <string name="result">请求结果</string>
+    <string name="getImg">获取图片</string>
 
 </resources>
