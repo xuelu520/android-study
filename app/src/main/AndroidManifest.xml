@@ -34,10 +34,6 @@
             android:label="@string/title_activity_list_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NetworkActivity"
-            android:label="@string/title_activity_network"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ViewPagerActivity"
             android:label="@string/title_activity_view_pager"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -60,6 +56,10 @@
         <activity
             android:name=".VolleyActivity"
             android:label="@string/title_activity_volley"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

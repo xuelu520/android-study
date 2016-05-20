@@ -15,12 +15,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button fragmentDemoButton;
     Button dataDemoButton;
     Button listViewButton;
-    Button netViewButton;
     Button viewPagerButton;
     Button cardViewButton;
     Button swipeRefreshButton;
     Button myListViewButton;
     Button volleyViewButton;
+    Button recyclerViewButton;
 
 
     @Override
@@ -33,22 +33,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentDemoButton = (Button) findViewById(R.id.fragment_demo);
         dataDemoButton = (Button) findViewById(R.id.data_demo);
         listViewButton = (Button) findViewById(R.id.listView);
-        netViewButton = (Button) findViewById(R.id.netView);
         viewPagerButton = (Button) findViewById(R.id.viewPagerView);
         swipeRefreshButton = (Button) findViewById(R.id.swipeRefreshView);
         cardViewButton = (Button) findViewById(R.id.cardView);
         myListViewButton = (Button) findViewById(R.id.myListView);
         volleyViewButton = (Button) findViewById(R.id.VolleyView);
+        recyclerViewButton = (Button) findViewById(R.id.RecyclerView);
 
         fragmentDemoButton.setOnClickListener(this);
         dataDemoButton.setOnClickListener(this);
         listViewButton.setOnClickListener(this);
-        netViewButton.setOnClickListener(this);
         viewPagerButton.setOnClickListener(this);
         swipeRefreshButton.setOnClickListener(this);
         cardViewButton.setOnClickListener(this);
         myListViewButton.setOnClickListener(this);
         volleyViewButton.setOnClickListener(this);
+        recyclerViewButton.setOnClickListener(this);
     }
 
     @Override
@@ -88,10 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 show("跳转ListView Demo 页面");
                 intent.setClass(MainActivity.this, ListViewActivity.class);
                 break;
-            case R.id.netView :
-                show("跳转NetworkView Demo 页面");
-                intent.setClass(MainActivity.this, NetworkActivity.class);
-                break;
             case R.id.viewPagerView :
                 show("跳转viewPagerView Demo 页面");
                 intent.setClass(MainActivity.this, ViewPagerActivity.class);
@@ -111,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.VolleyView :
                 show("跳转Volley测试页面");
                 intent.setClass(MainActivity.this, VolleyActivity.class);
+                break;
+            case R.id.RecyclerView :
+                show("跳转RecyclerView测试页面");
+                intent.setClass(MainActivity.this, RecyclerViewActivity.class);
                 break;
 
         }
